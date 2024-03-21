@@ -1,0 +1,5 @@
+serdes/KafkaEventSerializer.class
+serdes/KafkaEventDeserializer.class
+Main.class
+model/KafkaEvent.class
+function/CensorFiltering.class
