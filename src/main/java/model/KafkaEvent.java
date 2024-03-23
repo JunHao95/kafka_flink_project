@@ -1,7 +1,6 @@
 package model;
 
 public class KafkaEvent {
-  // just store the events data
     public String key;
     public String value;
     public long timestamp;

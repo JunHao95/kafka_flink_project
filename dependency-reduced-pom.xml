@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>it5100b</groupId>
   <artifactId>CensorFiltering</artifactId>
-  <name>My Fraud Detector</name>
+  <name>My Censorship filters</name>
   <version>1.0</version>
   <url>https://flink.apache.org</url>
   <build>

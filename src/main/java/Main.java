@@ -14,10 +14,8 @@ public class Main {
     public static final String BOOTSTRAP_SERVERS = "kafka0:9094,kafka1:9094,kafka2:9092";
     public static final String SOURCE_TOPIC = "raw-conversation";
     public static final String SINK_TOPIC = "filtered-conversation";
-
     public static final String SPAM_ALERT = "spam_alert";
 
-    // Need to add another topic
 
 
     public static void main(String[] args) throws Exception {
@@ -35,7 +33,7 @@ public class Main {
         KafkaSink<KafkaEvent> sink = KafkaSink.<KafkaEvent>builder()
                 .setBootstrapServers(BOOTSTRAP_SERVERS)
                 .setRecordSerializer(new KafkaEventSerializer(SINK_TOPIC))
-                .setTransactionalIdPrefix("flink-alert")
+                .setTransactionalIdPrefix("filter-messages")
                 .build();
         // spam alert sink
       KafkaSink<KafkaEvent> alert = KafkaSink.<KafkaEvent>builder()
@@ -51,6 +49,6 @@ public class Main {
                 .process(new CensorFiltering())
                 .sinkTo(sink);
 
-        env.execute("Fraud Detector");
+        env.execute("Censor Chat Application");
     }
 }
