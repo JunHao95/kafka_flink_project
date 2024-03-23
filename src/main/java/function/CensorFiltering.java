@@ -16,7 +16,7 @@ public class CensorFiltering extends KeyedProcessFunction<String, KafkaEvent, Ka
 
     static {
       vulgaritiesMap.put("fuck", "f**k");
-      vulgaritiesMap.put("fucking", "f**k**g");
+      vulgaritiesMap.put("knnccb", "k**c**");
       vulgaritiesMap.put("hell", "he11");
       vulgaritiesMap.put("Diu Lei Lou Mou", "DLLM");
     }

@@ -25,7 +25,7 @@ under the License.
 	<version>1.0</version>
 	<packaging>jar</packaging>
 
-	<name>My Fraud Detector</name>
+	<name>My Censorship filters</name>
 	<url>https://flink.apache.org</url>
 
 	<properties>

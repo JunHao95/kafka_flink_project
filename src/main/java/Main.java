@@ -15,7 +15,10 @@ public class Main {
     public static final String SOURCE_TOPIC = "raw-conversation";
     public static final String SINK_TOPIC = "filtered-conversation";
 
+    public static final String SPAM_ALERT = "spam_alert";
+
     // Need to add another topic
+
 
     public static void main(String[] args) throws Exception {
         // user balances
@@ -28,12 +31,18 @@ public class Main {
                 .setProperty("partition.discovery.interval.ms", "60000")
                 .build();
 
-        // fraud alert sink
+        // filtered messsage sink
         KafkaSink<KafkaEvent> sink = KafkaSink.<KafkaEvent>builder()
                 .setBootstrapServers(BOOTSTRAP_SERVERS)
                 .setRecordSerializer(new KafkaEventSerializer(SINK_TOPIC))
                 .setTransactionalIdPrefix("flink-alert")
                 .build();
+        // spam alert sink
+      KafkaSink<KafkaEvent> alert = KafkaSink.<KafkaEvent>builder()
+        .setBootstrapServers(BOOTSTRAP_SERVERS)
+        .setRecordSerializer(new KafkaEventSerializer(SPAM_ALERT))
+        .setTransactionalIdPrefix("spam-alert")
+        .build();
 
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
