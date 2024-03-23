@@ -4,23 +4,18 @@ import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.connector.kafka.sink.KafkaSink;
 import org.apache.flink.connector.kafka.source.KafkaSource;
 import org.apache.flink.connector.kafka.source.enumerator.initializer.OffsetsInitializer;
-//import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-//import org.apache.flink.streaming.api.functions.windowing.ProcessWindowFunction;
-//import org.apache.flink.streaming.api.windowing.assigners.SlidingEventTimeWindows;
-//import org.apache.flink.streaming.api.windowing.time.Time;
-//import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
-//import org.apache.flink.util.Collector;
 import org.apache.kafka.clients.consumer.OffsetResetStrategy;
 import serdes.KafkaEventDeserializer;
 import serdes.KafkaEventSerializer;
 
-//import java.time.Duration;
 
 public class Main {
     public static final String BOOTSTRAP_SERVERS = "kafka0:9094,kafka1:9094,kafka2:9092";
-    public static final String SOURCE_TOPIC = "user-balances";
-    public static final String SINK_TOPIC = "user-alerts"; // intially user-alerts
+    public static final String SOURCE_TOPIC = "raw-conversation";
+    public static final String SINK_TOPIC = "filtered-conversation";
+
+    // Need to add another topic
 
     public static void main(String[] args) throws Exception {
         // user balances

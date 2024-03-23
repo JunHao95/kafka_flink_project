@@ -12,11 +12,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CensorFiltering extends KeyedProcessFunction<String, KafkaEvent, KafkaEvent> {
-//    private static final double SMALL = -0.1;
-//    private static final double BIG = -500;
-
-    // mark as transient so will not be serialized
-    //private transient ValueState<Boolean> isLastTxnSmallKeyedValue;
     private static final Map<String, String> vulgaritiesMap = new HashMap<>();
 
     static {
